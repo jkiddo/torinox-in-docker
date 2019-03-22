@@ -19,7 +19,7 @@ hapi.fhir.org - http://hapi.fhir.org/baseDstu3
 To simplify usage you can create an alias:
 
 ```bash
-$ alias fhir="docker run -v ~/.torinox:/root/.local/share/Torinox/ jkiddo/torinox fhir"
+$ alias fhir="docker run --rm -v ~/.torinox:/root/.local/share/Torinox/ jkiddo/torinox fhir"
 $ fhir server list
 hapi.fhir.org - http://hapi.fhir.org/baseDstu3
 ```
