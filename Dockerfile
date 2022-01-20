@@ -1,7 +1,9 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build-env
-RUN dotnet tool install -g torinox
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
+RUN dotnet tool install -g firely.terminal
 
-FROM mcr.microsoft.com/dotnet/core/runtime:2.2
+FROM mcr.microsoft.com/dotnet/core/runtime:3.1
 COPY --from=build-env /root/.dotnet/tools /root/.dotnet/tools
 ENV PATH="${PATH}:/root/.dotnet/tools"
-RUN fhir install simplifier.core.stu3
+
+RUN fhir install hl7.fhir.r3.core
+RUN fhir install hl7.fhir.r4.core
